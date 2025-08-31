@@ -1,0 +1,64 @@
+:root{
+  --bg1:#090d26; --bg2:#0b1140; --bg3:#07102e;
+  --panel:#11183f; --fg:#eaf3ff;
+  --accent:#00ffd1; --accent2:#2aa8ff; --accent3:#8bffc0;
+  --danger:#ff3b6b; --warn:#ffd166; --good:#6bff95; --wall:#ff5858; --haz:#ff9f1c;
+  --glow: 0 0 12px rgba(0,255,209,.7), 0 0 36px rgba(42,168,255,.35);
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent; user-select:none}
+html,body{
+  height:100%; margin:0; color:var(--fg);
+  background: radial-gradient(1200px 600px at 50% 110%, #0b1440 0%, #080d2a 40%, #060a20 100%),
+              linear-gradient(160deg,var(--bg1),var(--bg2) 50%,var(--bg3));
+  font-family: system-ui, Segoe UI, Roboto, Ubuntu, "Noto Sans", sans-serif;
+  overflow:hidden;
+}
+.wrap{max-width:1000px;margin:0 auto;padding:16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+h1{margin:0;font-size:22px;font-weight:900;letter-spacing:.6px;
+   background:linear-gradient(90deg,var(--accent),var(--accent2));
+   -webkit-background-clip:text;background-clip:text;color:transparent; text-shadow:var(--glow)}
+.btn{background:linear-gradient(135deg,#16246a,#0f1b48);border:1px solid #2b3a7a;color:var(--fg);
+     padding:9px 14px;border-radius:16px;cursor:pointer;box-shadow:var(--glow);font-weight:800}
+.btn.big{padding:12px 18px;border-radius:18px;font-size:18px}
+.btn:hover{filter:brightness(1.1)}
+.hud{display:flex;gap:10px;align-items:center}
+
+#game{display:block;width:100%;max-width:1000px;margin-top:12px;border-radius:18px;
+  border:2px solid #2e3a7a;background:#090d1e;box-shadow:0 16px 50px rgba(0,0,0,.55), var(--glow)}
+.status{margin-top:10px;display:flex;justify-content:space-between;align-items:center}
+.pill{display:inline-block;padding:6px 12px;border-radius:999px;background:#0f1b44;border:1px solid #2e3a7a;font-size:14px;box-shadow:var(--glow)}
+.pill.hard{background:#24091f;border-color:#58122e;box-shadow:0 0 16px rgba(255,59,107,.6)}
+footer{opacity:.75;margin-top:8px;font-size:12px;text-align:center}
+
+/* Overlays */
+.overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(5,8,22,.86);z-index:20;text-align:center}
+.overlay h2{margin:0}
+
+/* Start Menu */
+#startMenu .row{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+.seg{display:inline-flex;gap:6px;background:#0f1b44;border:1px solid #2e3a7a;border-radius:14px;padding:6px 8px;box-shadow:var(--glow)}
+.seg button{border:none;padding:8px 12px;border-radius:10px;cursor:pointer;color:var(--fg);background:transparent;font-weight:800}
+.seg button.active{background:linear-gradient(135deg,#1a2b73,#0f1b48)}
+
+/* Level Select */
+.level-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;max-width:900px;width:90%;margin:10px auto}
+.level-grid button{padding:10px;border:none;border-radius:12px;cursor:pointer;font-weight:900;background:linear-gradient(135deg,#15225b,#0d183d);color:var(--fg);border:1px solid #2e3a7a;box-shadow:var(--glow)}
+.level-grid button.locked{background:#1b254b;color:#9bb;opacity:.6;cursor:not-allowed}
+.pager{display:flex;gap:10px;margin-top:8px}
+
+/* Touch Controls */
+.touch-cluster{position:fixed;bottom:20px;z-index:30;display:flex;gap:14px}
+.touch-cluster.left{left:20px}
+.touch-cluster.right{right:20px}
+.touch-btn{width:70px;height:70px;border-radius:18px;border:2px solid #2e3a7a;background:linear-gradient(145deg,#1a2b73,#0f1b48);color:white;font-size:28px;font-weight:900;box-shadow:var(--glow);touch-action:none}
+.touch-btn.jump{width:86px;height:86px;border-radius:22px;font-size:30px}
+
+/* Speech bubble */
+#speech{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);padding:8px 12px;border-radius:12px;background:#0e1742;border:1px solid #2840a0;box-shadow:var(--glow);font-weight:800;display:none;z-index:15}
+
+@media (max-width:720px){
+  .wrap{padding:12px}
+  .touch-btn{width:64px;height:64px}
+  .touch-btn.jump{width:80px;height:80px}
+}

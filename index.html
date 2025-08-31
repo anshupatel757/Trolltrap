@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Extreme Neon Troll Platformer — 320 Hard Levels</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>⚡ Extreme Neon Troll Platformer ⚡</h1>
+      <div class="hud">
+        <button class="btn" id="restart">Restart (R)</button>
+        <button class="btn" id="openLevelSelect">Level Select</button>
+      </div>
+    </header>
+
+    <canvas id="game" width="1000" height="520"></canvas>
+
+    <div class="status">
+      <span class="pill" id="deaths">Deaths: 0</span>
+      <span class="pill" id="level">Level: 1 / 320</span>
+      <span class="pill hard" id="diffTag">HARD</span>
+    </div>
+
+    <footer>
+      Neon UI inspired by Geometry Dash. 320 procedural hard levels with checkpoints. All art/code original.
+    </footer>
+  </div>
+
+  <!-- Start Menu -->
+  <div id="startMenu" class="overlay" style="display:flex">
+    <h2>Ready to Rage? 😈</h2>
+    <div class="row">
+      <div class="seg" role="tablist">
+        <button id="diffEasy">Easy</button>
+        <button id="diffHard" class="active" aria-pressed="true">Hard</button>
+      </div>
+      <button id="btnPlay" class="btn big">Play ▶</button>
+    </div>
+  </div>
+
+  <!-- Game Over -->
+  <div id="overlay" class="overlay">
+    <div id="overlayText">💀 You Died!</div>
+    <button class="btn big" onclick="doRestart()">Respawn</button>
+  </div>
+
+  <!-- Level Select -->
+  <div id="levelSelect" class="overlay">
+    <h2>Select Level</h2>
+    <div id="levelButtons" class="level-grid"></div>
+    <div class="pager">
+      <button class="btn" id="prevPage">◀ Prev</button>
+      <button class="btn" id="nextPage">Next ▶</button>
+    </div>
+    <button class="btn" onclick="closeLevelSelect()">Close</button>
+  </div>
+
+  <!-- Touch Controls -->
+  <div class="touch-cluster left">
+    <button id="btnLeft" class="touch-btn" aria-label="Move Left">◀</button>
+    <button id="btnRight" class="touch-btn" aria-label="Move Right">▶</button>
+  </div>
+  <div class="touch-cluster right">
+    <button id="btnJump" class="touch-btn jump" aria-label="Jump">▲</button>
+  </div>
+
+  <!-- Speech bubble -->
+  <div id="speech" role="status" aria-live="polite"></div>
+
+  <script src="game.js"></script>
+</body>
+</html>
